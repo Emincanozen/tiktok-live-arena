@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TikTok Live Arena — Control Dashboard</title>
+  <link rel="stylesheet" href="/css/dashboard.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-dot"></span>
+      <span>TikTok Live Arena</span>
+    </div>
+    <div class="status-bar">
+      <span id="statusBadge" class="badge idle"><span class="dot"></span><span id="statusText">Idle</span></span>
+      <span class="badge">👁️ <span id="viewerCount">0</span> viewers</span>
+      <span class="badge" id="roomBadge" style="display:none">Room: <span id="roomIdText">-</span></span>
+      <button id="btnResetGame" class="btn btn-danger btn-sm">Reset Game</button>
+      <button id="btnResetAll" class="btn btn-sm" title="Reset game and clear leaderboard">Reset Scores</button>
+    </div>
+  </header>
+
+  <div id="errorBanner" class="error-banner"></div>
+
+  <main class="layout">
+    <!-- LEFT COLUMN: Connection, Simulator, Manual Test -->
+    <div class="col col-left">
+      <section class="card">
+        <div class="card-head">
+          <h2 class="card-title">TikTok LIVE Connection</h2>
+        </div>
+        <div class="stack">
+          <label class="field">
+            Username (with or without @)
+            <input id="inpUsername" type="text" placeholder="e.g. username">
+          </label>
+          <div class="row">
+            <button id="btnConnect" class="btn btn-primary" style="flex:1">Connect</button>
+            <button id="btnDisconnect" class="btn" style="flex:1" disabled>Disconnect</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="card-head">
+          <h2 class="card-title">Event Simulator</h2>
+          <span id="simBadge" class="badge idle">Off</span>
+        </div>
+        <div class="row">
+          <select id="simRate" style="flex:1">
+            <option value="low">Low Rate</option>
+            <option value="mid" selected>Medium Rate</option>
+            <option value="high">High Rate</option>
+          </select>
+          <button id="btnSimStart" class="btn btn-blue">Start</button>
+          <button id="btnSimStop" class="btn" disabled>Stop</button>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="card-head">
+          <h2 class="card-title">Manual Test Panel</h2>
+        </div>
+        <div class="stack">
+          <div class="row">
+            <label class="field" style="flex:1">
+              Test Nickname
+              <input id="testNick" type="text" value="TestPlayer">
+            </label>
+            <label class="field" style="width:85px">
+              Count
+              <input id="testCount" type="number" min="1" max="999" value="1">
+            </label>
+          </div>
+
+          <div class="row wrap">
+            <button id="btnTestChat1" class="btn btn-sm" style="border-color:#ff3b4e">💬 Team 1 (Red)</button>
+            <button id="btnTestChat2" class="btn btn-sm" style="border-color:#2f8cff">💬 Team 2 (Blue)</button>
+            <button id="btnTestLike" class="btn btn-sm">❤️ 100 Likes</button>
+            <button id="btnTestFollow" class="btn btn-sm">➕ Follow</button>
+            <button id="btnTestShare" class="btn btn-sm">↗️ Share</button>
+          </div>
+
+          <div class="row">
+            <input id="testComment" type="text" placeholder="Custom chat (or @name / kill name)...">
+            <button id="btnTestChatCustom" class="btn btn-sm">Send</button>
+          </div>
+
+          <div class="row wrap">
+            <button id="btnTestTarget" class="btn btn-sm" style="border-color:#a855f7">🎯 Target @TestPlayer</button>
+            <button id="btnTestTakeover" class="btn btn-sm" style="border-color:#ff7b00">⚡ 100💎 Meteor / Boss</button>
+            <button id="btnTestSnipe" class="btn btn-sm" style="border-color:#ef4444">🐉 500💎 Cannon / Snipe</button>
+            <button id="btnTestHeal" class="btn btn-sm" style="border-color:#2ecc71">❤️ Heal Chat</button>
+          </div>
+
+          <div style="font-size:12px;color:var(--muted);margin-top:4px">Gifts (click to send):</div>
+          <div id="giftGrid" class="gift-grid"></div>
+        </div>
+      </section>
+    </div>
+
+    <!-- MIDDLE COLUMN: Game Mode Switcher, Overlay Preview, Rules, Settings -->
+    <div class="col col-mid">
+      <section class="card">
+        <div class="card-head">
+          <h2 class="card-title">Game Mode</h2>
+          <span id="activeModeBadge" class="badge sim">Castle Siege</span>
+        </div>
+        <div class="mode-grid" id="modeGrid">
+          <button type="button" class="mode-card active" data-mode="arena">
+            <span class="mode-icon">🏰</span>
+            <span class="mode-name">Castle Siege</span>
+            <span class="mode-sub">Red vs Blue</span>
+          </button>
+          <button type="button" class="mode-card" data-mode="balls">
+            <span class="mode-icon">🔮</span>
+            <span class="mode-name">Chaos Ball Ring</span>
+            <span class="mode-sub">Physics Ring</span>
+          </button>
+          <button type="button" class="mode-card" data-mode="halay">
+            <span class="mode-icon">💃</span>
+            <span class="mode-name">Live Halay Party</span>
+            <span class="mode-sub">Dance Chain</span>
+          </button>
+          <button type="button" class="mode-card" data-mode="music">
+            <span class="mode-icon">🎹</span>
+            <span class="mode-name">Synth Maestro</span>
+            <span class="mode-sub">Note Rush</span>
+          </button>
+          <button type="button" class="mode-card" data-mode="boss">
+            <span class="mode-icon">👹</span>
+            <span class="mode-name">Titan Siege</span>
+            <span class="mode-sub" style="color:#ffd23f;font-weight:700">⭐ FLAGSHIP</span>
+          </button>
+          <button type="button" class="mode-card" data-mode="monster">
+            <span class="mode-icon">👾</span>
+            <span class="mode-name">Monster Hunt</span>
+            <span class="mode-sub">Chase &amp; Snipe</span>
+          </button>
+        </div>
+        <div class="submode-bar" id="submodeBar">
+          <span class="submode-label">Arena Style:</span>
+          <button type="button" class="submode-btn active" data-submode="frontline">⚔️ Frontline Clash</button>
+          <button type="button" class="submode-btn" data-submode="lanes">🛣️ 3-Lane Siege</button>
+          <button type="button" class="submode-btn" data-submode="tug">🚩 Tug-of-War</button>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="card-head">
+          <h2 class="card-title">Overlay (OBS / TikTok LIVE Studio)</h2>
+          <a id="linkOverlayOpen" href="/overlay.html?bg=1" target="_blank" class="btn btn-sm">Open in New Tab ↗</a>
+        </div>
+        <div class="stack">
+          <div class="row">
+            <input id="overlayUrl" type="text" readonly>
+            <button id="btnCopyUrl" class="btn btn-blue">Copy Base</button>
+            <button id="btnCopyModeUrl" class="btn">Copy Mode URL</button>
+          </div>
+          <div class="preview-wrap" id="previewWrap">
+            <iframe id="previewFrame" src="/overlay.html?bg=1" title="Overlay Live Preview"></iframe>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="tabs">
+          <button class="tab active" data-tab="rules">Rules</button>
+          <button class="tab" data-tab="settings">Settings</button>
+        </div>
+
+        <!-- RULES TAB -->
+        <div id="tab-rules" class="tab-panel active">
+          <div class="row wrap" style="justify-content:space-between;margin-bottom:10px">
+            <div class="row">
+              <button id="btnAddRule" class="btn btn-sm">+ New Rule</button>
+              <button id="btnToggleRawRules" class="btn btn-sm">Raw JSON</button>
+            </div>
+            <button id="btnSaveRules" class="btn btn-green btn-sm">Save Rules</button>
+          </div>
+
+          <div id="rulesRawWrap" style="display:none;margin-bottom:10px" class="stack">
+            <textarea id="rulesRawJson" rows="12"></textarea>
+            <div class="row">
+              <button id="btnApplyRawRules" class="btn btn-blue btn-sm">Apply &amp; Save JSON</button>
+            </div>
+          </div>
+
+          <div id="rulesList" class="rule-list"></div>
+        </div>
+
+        <!-- SETTINGS TAB -->
+        <div id="tab-settings" class="tab-panel">
+          <form id="settingsForm" class="stack">
+            <label class="field">
+              Sign API Key (signApiKey — optional)
+              <input id="setSignApiKey" type="password" autocomplete="off" placeholder="EulerStream / Sign API key">
+            </label>
+            <div class="row">
+              <label class="field" style="flex:1">
+                Castle HP (castleHp)
+                <input id="setCastleHp" type="number" min="100" max="100000" step="50">
+              </label>
+              <label class="field" style="flex:1">
+                Round Duration (seconds)
+                <input id="setRoundSeconds" type="number" min="30" max="3600" step="10">
+              </label>
+              <label class="field" style="flex:1">
+                TTS Language
+                <input id="setTtsLang" type="text" placeholder="en-US">
+              </label>
+            </div>
+            <label class="check">
+              <input id="setAutoReconnect" type="checkbox">
+              <span>Auto-reconnect on disconnect (autoReconnect)</span>
+            </label>
+            <label class="check">
+              <input id="setTtsEnabled" type="checkbox">
+              <span>Enable Text-to-Speech (TTS)</span>
+            </label>
+            <label class="check">
+              <input id="setAllowKeypress" type="checkbox">
+              <span>Allow keyboard keypress actions (allowKeypress)</span>
+            </label>
+            <div class="warn-box">
+              ⚠️ Warning: When <strong>allowKeypress</strong> is enabled, <code>keypress</code> rule actions simulate real keystrokes on the host PC. Only enable for trusted rules.
+            </div>
+            <div class="row" style="justify-content:flex-end;margin-top:4px">
+              <button type="submit" class="btn btn-green">Save Settings</button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </div>
+
+    <!-- RIGHT COLUMN: Live Feed & Leaderboard -->
+    <div class="col col-right">
+      <section class="card">
+        <div class="card-head">
+          <h2 class="card-title">Live Event Feed</h2>
+          <button id="btnClearFeed" class="btn btn-sm">Clear</button>
+        </div>
+        <div id="feedList" class="feed-list"></div>
+      </section>
+
+      <section class="card">
+        <div class="card-head">
+          <h2 class="card-title">Leaderboard</h2>
+          <span class="badge">Top 20</span>
+        </div>
+        <div id="lbList" class="lb-list"></div>
+      </section>
+    </div>
+  </main>
+
+  <div id="toast" class="toast"></div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/js/dashboard.js"></script>
+</body>
+</html>

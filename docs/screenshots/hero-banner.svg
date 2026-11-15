@@ -1,0 +1,136 @@
+<svg width="1200" height="340" viewBox="0 0 1200 340" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0e1a"/>
+      <stop offset="50%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#020617"/>
+    </linearGradient>
+    <linearGradient id="primaryGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ff3b5c"/>
+      <stop offset="50%" stop-color="#ff007f"/>
+      <stop offset="100%" stop-color="#00f2fe"/>
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00f2fe"/>
+      <stop offset="100%" stop-color="#4facfe"/>
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.95"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="24" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+    <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#334155" stroke-width="0.75" stroke-opacity="0.3"/>
+    </pattern>
+  </defs>
+
+  <!-- Background Base -->
+  <rect width="1200" height="340" rx="16" fill="url(#bgGrad)"/>
+  <rect width="1200" height="340" rx="16" fill="url(#grid)"/>
+
+  <!-- Ambient Glow Spheres -->
+  <circle cx="150" cy="80" r="130" fill="#ff3b5c" opacity="0.14" filter="url(#glow)"/>
+  <circle cx="1020" cy="180" r="160" fill="#00f2fe" opacity="0.12" filter="url(#glow)"/>
+  <circle cx="600" cy="300" r="140" fill="#7928ca" opacity="0.08" filter="url(#glow)"/>
+
+  <!-- Card Border -->
+  <rect x="0.5" y="0.5" width="1199" height="339" rx="15.5" stroke="#334155" stroke-opacity="0.6"/>
+
+  <!-- Left Content Area -->
+  <g transform="translate(64, 48)">
+    <!-- Category Pill -->
+    <rect width="248" height="28" rx="14" fill="#ff3b5c" fill-opacity="0.12" stroke="#ff3b5c" stroke-opacity="0.4" stroke-width="1"/>
+    <circle cx="14" cy="14" r="5" fill="#ff3b5c"/>
+    <text x="26" y="19" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="#ff6b8b" letter-spacing="1.5">TIKTOK LIVE STREAM ENGINE</text>
+
+    <!-- Main Title -->
+    <text x="0" y="82" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="44" font-weight="900" fill="#ffffff" letter-spacing="-0.5">
+      TikTok Live Arena
+    </text>
+
+    <!-- Subtitle / Tagline -->
+    <text x="0" y="118" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="17" font-weight="500" fill="#94a3b8">
+      60 FPS Interactive OBS Canvas Overlay &amp; Event-Driven Game Suite
+    </text>
+
+    <!-- Description Paragraph -->
+    <text x="0" y="148" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="13.5" font-weight="400" fill="#64748b">
+      Titan Siege · Castle Siege 300v300 · Monster Hunt · Halay Party · Chaos Balls · Synth Maestro
+    </text>
+
+    <!-- Feature Badges -->
+    <g transform="translate(0, 182)">
+      <!-- Badge 1: 6 Game Modes -->
+      <rect width="138" height="32" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+      <text x="69" y="21" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="600" fill="#f1f5f9" text-anchor="middle">⚡ 6 Game Modes</text>
+
+      <!-- Badge 2: 60 FPS HTML5 Canvas -->
+      <rect x="148" width="160" height="32" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+      <text x="228" y="21" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="600" fill="#38bdf8" text-anchor="middle">🎮 60 FPS Canvas VFX</text>
+
+      <!-- Badge 3: Real-Time Rules Engine -->
+      <rect x="318" width="158" height="32" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+      <text x="397" y="21" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="600" fill="#a78bfa" text-anchor="middle">⚙️ Rules Engine</text>
+
+      <!-- Badge 4: WebAudio SFX -->
+      <rect x="486" width="144" height="32" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+      <text x="558" y="21" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="600" fill="#34d399" text-anchor="middle">🔊 WebAudio SFX</text>
+    </g>
+  </g>
+
+  <!-- Right Side Interactive HUD Preview Mockup -->
+  <g transform="translate(770, 36)">
+    <!-- Main HUD Card Background -->
+    <rect width="366" height="268" rx="14" fill="url(#cardGrad)" stroke="#334155" stroke-width="1.5"/>
+    
+    <!-- Window Bar -->
+    <path d="M0 14 Q0 0 14 0 H352 Q366 0 366 14 V34 H0 Z" fill="#0f172a"/>
+    <circle cx="18" cy="17" r="4.5" fill="#ef4444"/>
+    <circle cx="34" cy="17" r="4.5" fill="#eab308"/>
+    <circle cx="50" cy="17" r="4.5" fill="#22c55e"/>
+    <text x="183" y="22" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="600" fill="#64748b" text-anchor="middle">ARENA HUD — TITAN SIEGE</text>
+
+    <!-- Boss Battle Arena Status Display -->
+    <g transform="translate(18, 48)">
+      <!-- Boss Health Bar -->
+      <text x="0" y="12" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" fill="#f87171">TITAN BOSS PHASE II</text>
+      <text x="330" y="12" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" fill="#f87171" text-anchor="end">742,000 / 1,000,000 HP</text>
+      <rect y="18" width="330" height="8" rx="4" fill="#334155"/>
+      <rect y="18" width="245" height="8" rx="4" fill="url(#primaryGrad)"/>
+
+      <!-- Red vs Blue Frontline Clash -->
+      <g transform="translate(0, 38)">
+        <rect width="158" height="54" rx="8" fill="#1e1e2f" stroke="#ff3b4e" stroke-opacity="0.4" stroke-width="1"/>
+        <text x="12" y="20" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="700" fill="#ff6b8b">RED HORDE</text>
+        <text x="12" y="42" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="18" font-weight="900" fill="#ffffff">184 <tspan font-size="11" font-weight="500" fill="#94a3b8">units</tspan></text>
+        <rect x="94" y="14" width="52" height="18" rx="4" fill="#ff3b4e" fill-opacity="0.2"/>
+        <text x="120" y="26" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="700" fill="#ff6b8b" text-anchor="middle">+DASH</text>
+
+        <rect x="172" width="158" height="54" rx="8" fill="#162238" stroke="#38bdf8" stroke-opacity="0.4" stroke-width="1"/>
+        <text x="184" y="20" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="700" fill="#38bdf8">BLUE DEFENSE</text>
+        <text x="184" y="42" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="18" font-weight="900" fill="#ffffff">219 <tspan font-size="11" font-weight="500" fill="#94a3b8">units</tspan></text>
+        <rect x="266" y="14" width="52" height="18" rx="4" fill="#38bdf8" fill-opacity="0.2"/>
+        <text x="292" y="26" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="700" fill="#38bdf8" text-anchor="middle">+SHIELD</text>
+      </g>
+
+      <!-- Live Stream Feed Item Mockup -->
+      <g transform="translate(0, 104)">
+        <rect width="330" height="42" rx="8" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+        <circle cx="21" cy="21" r="12" fill="#3b82f6"/>
+        <text x="21" y="25" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="800" fill="#ffffff" text-anchor="middle">👑</text>
+        <text x="42" y="18" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" fill="#f1f5f9">@valkyrie_pro <tspan font-weight="400" fill="#64748b">sent</tspan> <tspan fill="#f59e0b" font-weight="700">Money Gun (500💎)</tspan></text>
+        <text x="42" y="32" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="500" fill="#10b981">Spawned Paladin Hero + Drone Strike</text>
+      </g>
+
+      <!-- Wave / Performance Footer -->
+      <g transform="translate(0, 158)">
+        <text x="0" y="14" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="600" fill="#64748b">Wave 14/20</text>
+        <text x="165" y="14" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="600" fill="#10b981" text-anchor="middle">● 60 FPS SOLID</text>
+        <text x="330" y="14" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="600" fill="#64748b" text-anchor="end">OBS Studio Ready</text>
+      </g>
+    </g>
+  </g>
+</svg>

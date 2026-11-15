@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>TikTok Live Arena — Overlay</title>
+<style>
+  html,body{margin:0;padding:0;width:100%;height:100%;overflow:hidden;background:transparent;}
+  body.bg{background:radial-gradient(ellipse at 50% 30%,#1c2540 0%,#0b0f1d 70%);}
+  canvas{display:block;position:absolute;left:0;top:0;}
+</style>
+</head>
+<body>
+<canvas id="c" width="1920" height="1080"></canvas>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/overlay-modes.js"></script>
+<script src="/js/mode-boss.js"></script>
+<script src="/js/overlay.js"></script>
+</body>
+</html>

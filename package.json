@@ -1,0 +1,35 @@
+{
+  "name": "tiktok-live-arena",
+  "version": "1.0.0",
+  "description": "Interactive TikTok LIVE game suite and real-time stream overlay platform for OBS and TikTok LIVE Studio.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node tests/smoke.js"
+  },
+  "keywords": [
+    "tiktok-live",
+    "tiktok-live-connector",
+    "interactive-stream",
+    "obs-overlay",
+    "socket-io",
+    "html5-canvas",
+    "tikfinity"
+  ],
+  "author": "Emincanozen",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Emincanozen/tiktok-live-arena.git"
+  },
+  "homepage": "https://github.com/Emincanozen/tiktok-live-arena#readme",
+  "type": "commonjs",
+  "dependencies": {
+    "express": "^5.3.0",
+    "socket.io": "^4.8.4",
+    "tiktok-live-connector": "^2.5.0"
+  },
+  "devDependencies": {
+    "socket.io-client": "^4.8.4"
+  }
+}
